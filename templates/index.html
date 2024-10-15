@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>🕮 Bible Search</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Simple Bible Search</h1>
+        <form action="" method="post">
+            <label for="name" id="label">Enter Bible Search</label><br>
+            <input type="text" name="name" id="name" placeholder="Enter Book. E.g. genesis" required><br>
+            <input type="number" name="chapter" id="number" placeholder="Enter Chapter No. E.g. 1" required><br>
+            <input type="number" name="verse" id="number" placeholder="Enter Verse No. E.g. 1"><br><br>
+            <button type="submit">Find</button>
+        </form><br>
+    </div>
+    {% for page in pages %}
+    <div class="content">
+        <h1 class="book-title">{{page.bik}}: {{ page.chap }} vs {{page.ver }} </h1>
+        <p class="book-text">{{page.text}}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
